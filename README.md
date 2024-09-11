@@ -87,12 +87,16 @@ If the input is invalid, the utility will return an appropriate error message su
 ```bash
 npm install cypress --save-dev
 ```
+### If Cypress could not install:
+```bash
+./node_modules/.bin/cypress install
+```
 #### Open Cypress UI:
 
 ```bash
 npx cypress open
 ```
-#### Once Cypress is open, select the geolocation-util.spec.js file to run the tests.
+#### Once Cypress is open, select E2E Testing and then choose the browser. Then select the geolocation-util.spec.js file to run the tests.
 #### Run Cypress in headless mode:
 ```bash
 npx cypress run
