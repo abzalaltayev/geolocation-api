@@ -16,6 +16,7 @@ To run the utility and tests, you need the following installed:
 
 - **Node.js** (v14 or above)
 - **npm** (v6 or above)
+- **Cypress** (v10 or above)
 
 ## Setup
 
@@ -36,7 +37,7 @@ The API key for OpenWeather is included in the `config.js` file. However, in a p
 
 ## Files Overview
 
-- **`geolocation-util/geoloc-util.js`**: The main utility file that fetches coordinates for city/state and zip code inputs.
+- **`geolocation-util/geolocation-util.js`**: The main utility file that fetches coordinates for city/state and zip code inputs.
 - **`config.js`**: Configuration file containing the API key and API endpoint URLs.
 - **`cypress/integration/geolocation-util.spec.js`**: Cypress test file to validate the functionality of the geolocation utility.
 - **`cypress.config.js`**: Cypress configuration file for setting up test patterns and environments.
@@ -50,15 +51,15 @@ The utility can be run from the command line. It accepts both zip codes and city
 #### Single city/state input:
 
 ```bash
-node geolocation-util/geoloc-util.js "Tampa, FL"
+node geolocation-util/geolocation-util.js "Tampa, FL"
 ```
 #### Single zip code input:
 ```bash
-node geolocation-util/geoloc-util.js "60510"
+node geolocation-util/geolocation-util.js "60510"
 ```
 #### Multiple location inputs:
 ```bash
-node geolocation-util/geoloc-util.js "Aurora, IL" "44444"
+node geolocation-util/geolocation-util.js "Aurora, IL" "44444"
 ```
 ### Expected Output:
 
@@ -95,4 +96,8 @@ npx cypress open
 #### Run Cypress in headless mode:
 ```bash
 npx cypress run
+```
+### IF YOUR TEST ARE FAILING DUE TO 'CANNOT FIND MODULE' PLEASE ADD geolocation-api inside the path at line 3 in geolocation-util.spec.js file
+```bash
+const utilPath = path.join(__dirname,'../../geolocation-api/geolocation-util/geolocation-util.js');
 ```
